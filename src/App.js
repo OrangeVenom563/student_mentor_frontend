@@ -1,19 +1,21 @@
-import './App.css';
-import {BrowserRouter,Switch,Route} from 'react-router-dom';
-import Header from './components/header.component';
-import StudentPage from './pages/student/student-page.component';
-import MentorPage from './pages/mentor/mentor-page.component';
+import "./App.css";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Header from "./components/header-nav/header.component";
+import ViewPage from "./pages/view-page/view-page.component";
+import CreatePage from "./pages/create-page/create-page.component";
+import ChangePage from "./pages/change-page/change-page.component";
 
 function App() {
   return (
     <BrowserRouter>
-    <div className="App">
-    <Header/>
-    <Switch>
-    <Route path="/student" component={StudentPage}/>
-    <Route path="/mentor" component={MentorPage}/>
-    </Switch>
-    </div>
+      <div className="App">
+        <Header />
+        <Switch>
+          <Route path="/view" component={ViewPage} />
+          <Route path="/create" component={CreatePage} />
+          <Route path="/change" component={ChangePage} />
+        </Switch>
+      </div>
     </BrowserRouter>
   );
 }

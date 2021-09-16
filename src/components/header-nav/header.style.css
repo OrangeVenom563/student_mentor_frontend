@@ -7,20 +7,14 @@
 }
 
 .AppName{
-    font-size: 50px;
+    font-size: 2.8vw;
     font-weight: 600;
     line-height: 1;
 }
 
-.logo-container{
-    width: 70px;
-    height: 70px;
-    background-position: center;
-    border-radius: 50%;
-}
 
 .options{
-    width: 30%;
+    width: 60%;
     height: 100%;
     display: flex;
     align-content: center;
@@ -28,8 +22,9 @@
 }
 
 .option{
-    padding: 10px 15px;
-}
+    display: flex;
+    padding: 5px 5px;
+   }
 
 a{
     color:black;

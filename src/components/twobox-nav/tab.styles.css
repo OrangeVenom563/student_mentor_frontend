@@ -1,0 +1,22 @@
+.tab-switch{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-evenly;
+    width: 60%;
+    margin: auto;
+}
+.sub-tab{
+    border: 2px solid gray;
+    border-radius: 5px;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    margin: 5px;
+}
+
+@media (max-width:500px){
+    .tab-switch{
+        width: 80%;
+    }
+}

@@ -6,7 +6,7 @@ const CreatePage = () =>{
     return(
         <div>
             <TwoBoxNav/>
-            <CreationForm/>
+            <CreationForm type=""/>
         </div>
     )
 }

@@ -14,6 +14,17 @@
     justify-content: center;
     margin: 5px;
 }
+.sub{
+    background: gray;
+    border-radius: 5px;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    margin: 5px;
+    color: white;
+    font-size: 18px;
+    font-size: large;
+}
 
 @media (max-width:500px){
     .tab-switch{

@@ -2,8 +2,11 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width:70%;
+    width:80%;
+    padding:40px;
+    border-radius: 10px;
     margin:10vh auto;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .creation-form{
@@ -12,13 +15,13 @@
 
 input[type=text], input[type=email] {
     border: none;
-    border-bottom: 1px solid rgb(194, 192, 192);
+    border-bottom: 1px solid #C850C0;
     width:100%;
   }
-  
+
   input:focus{
     outline: none;
-    border-bottom: 2px solid grey;
+    border-bottom: 2px solid #FFCC70;
   }
 
   label{
@@ -26,9 +29,10 @@ input[type=text], input[type=email] {
   }
 
   button{
-      border: none;
-      background-color: rgb(206, 158, 70);
+      border: 3px solid #C850C0;
+      background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
       border-radius: 3px;
       height: 30px;
       font-weight: bolder;
+      margin-top: 50px;
   }

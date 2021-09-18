@@ -10,6 +10,9 @@
     font-size: 2.8vw;
     font-weight: 600;
     line-height: 1;
+    background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+	-webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 
@@ -24,7 +27,17 @@
 .option{
     display: flex;
     padding: 5px 5px;
+    font-weight:500;
+    line-height: 50px;
+    border-bottom: 3px solid black;
+    margin-bottom: 30px;
+    margin-right: 10px;
    }
+
+.option:hover{
+    color:#C850C0;
+    border-bottom: 3px solid #FFCC70;
+}
 
 a{
     color:black;

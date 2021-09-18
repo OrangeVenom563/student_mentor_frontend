@@ -5,7 +5,7 @@ import TwoBoxNav from "../../components/twobox-nav/twobox-nav.component";
 const CreatePage = () => {
   return (
     <div>
-      <TwoBoxNav>
+      <TwoBoxNav options={{left:"Student",right:"Mentor"}}>
         <CreationForm type="student"/>
         <CreationForm type="mentor"/>
       </TwoBoxNav>

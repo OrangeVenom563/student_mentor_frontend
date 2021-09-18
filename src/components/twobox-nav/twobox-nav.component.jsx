@@ -1,15 +1,19 @@
 import React, {useState} from "react";
 import "./tab.styles.css";
 
-const TwoBoxNav = ({children}) => {
-    const [createStudent,setStudent] = useState(false);
+const TwoBoxNav = ({children,options}) => {
+    const [left,setLeft] = useState(false);
   return (
       <>
     <div className="tab-switch">
-      <div as="button" className={createStudent?"sub":"sub-tab"} onClick={()=>setStudent(true)}>Student</div>
-      <div as="button" className={createStudent?"sub-tab":"sub"} onClick={()=>setStudent(false)}>Mentor</div>
+      <div as="button" className={left?"sub":"sub-tab"} onClick={()=>setLeft(true)}>{options.left}</div>
+      <div as="button" className={left?"sub-tab":"sub"} onClick={()=>setLeft(false)}>{options.right}</div>
     </div>
-    {createStudent? children[0] : children[1]}
+    {
+      children?
+      left? children[0] : children[1]
+      :''
+    }
     </>
   );
 };

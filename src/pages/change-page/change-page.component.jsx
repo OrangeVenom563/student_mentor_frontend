@@ -8,25 +8,34 @@ import M from "materialize-css";
 const ChangePage = () => {
   const [studentData, setStudent] = useState([]);
   const [mentorData, setMentor] = useState([]);
+  const [changed, setChanged] = useState('');
   let studs = [];
   let ment = '';
   let stud = '';
 
-  useEffect(() => {
+  const refresh = ()=>{
     fetch(URL+"/student/all-students", { method: "get" })
-      .then((res) => res.json())
-      .then((res) => {
-        setStudent(res);
-      })
-      .catch((err) => console.log(err));
+    .then((res) => res.json())
+    .then((res) => {
+      setStudent(res);
+    })
+    .catch((err) => console.log(err));
 
-    fetch(URL+"/mentor/all-mentors", { method: "get" })
-      .then((res) => res.json())
-      .then((res) => {
-        setMentor(res);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  fetch(URL+"/mentor/all-mentors", { method: "get" })
+    .then((res) => res.json())
+    .then((res) => {
+      setMentor(res);
+    })
+    .catch((err) => console.log(err));
+  }
+
+  useEffect(() => {
+   refresh()
+  },[]);
+
+  useEffect(() => {
+    refresh()
+   },[changed]);
 
   //mentor assigning section
   const getStuds= (e)=> {
@@ -58,6 +67,8 @@ const ChangePage = () => {
         })
     })
     .then((res) => res.json())
+    .then((res) => M.toast({ html: res.message}))
+    .then((res) => setChanged(Math.random))
     .catch((err) => console.log(err));
   }
 
@@ -84,7 +95,10 @@ const ChangePage = () => {
           stuId:stud
       })
     })
-  .then((res) =>console.log(res))
+  .then((res) =>res.json())
+  .then((res) =>M.toast({ html: res.message }))
+  .then((res) => setChanged(Math.random))
+  .catch((err) =>console.log(err))
   }
 
   return (

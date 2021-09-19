@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import TwoBoxNav from "../../components/twobox-nav/twobox-nav.component";
 import "./view-page.styles.css";
 
+//This component displays list of students with and without mentor
 const ViewPage = () => {
   const [studentData, setStudent] = useState([]);
 
@@ -12,21 +13,19 @@ const ViewPage = () => {
         setStudent(res);
       })
       .catch((err) => console.log(err));
-
   }, []);
 
   return (
     <div>
       <TwoBoxNav options={{ left:"Without Mentor", right: "All students"}}>
   
-    
         <div className="students-container">
           { !studentData.length==0?
             (studentData
             .filter((student) => !student.mentor)
-            .map((student) => {
+            .map((student,idx) => {
               return (
-                <div className="student-tile">
+                <div key={idx} className="student-tile">
                   <p>Name: {student.name.toUpperCase()}</p>
                   <p>Id: {student.id}</p>
                   <p>Batch: {student.batch}</p>
@@ -37,13 +36,11 @@ const ViewPage = () => {
             }
         </div>
        
-      
-
         <div className="students-container">
           { !studentData.length==0?
-            (studentData.map((student) => {
+            (studentData.map((student,idx) => {
             return (
-              <div className="student-tile">
+              <div key={idx} className="student-tile">
                 <p>Name: {student.name.toUpperCase()}</p>
                 <p>Id: {student.id}</p>
                 <p>Batch: {student.batch}</p>

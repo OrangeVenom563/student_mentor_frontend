@@ -3,14 +3,13 @@ import TwoBoxNav from "../../components/twobox-nav/twobox-nav.component";
 import "./change-page.styles.css";
 import M from "materialize-css";
 
-
+//This component is used to assign mentor and remove mentor for students
 const ChangePage = () => {
   const [studentData, setStudent] = useState([]);
   const [mentorData, setMentor] = useState([]);
   let studs = [];
   let ment = '';
   let stud = '';
-
 
   useEffect(() => {
     fetch("/student/all-students", { method: "get" })
@@ -28,22 +27,20 @@ const ChangePage = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  //mentor assigning section
   const getStuds= (e)=> {
     const remove = (itm)=>{
       const ind = studs.indexOf(itm)
       studs.splice(ind,1)
     }
     e.target.checked? studs.push(e.target.value) : remove(e.target.value);
-   console.log(studs)
   }
 
   const getMent = (e) => {
       ment = e.target.value;
-      console.log(ment)
   }
 
   const assignStuds = (e)=>{
-    e.preventDefault();
     if(studs.length===0||ment===""){
       M.toast({ html: "Select a mentor and students" });
       return "";
@@ -62,6 +59,7 @@ const ChangePage = () => {
     .catch((err) => console.log(err));
   }
 
+  // mentor removal section
   const getRemoveData = (st,men)=>{
     ment=men;
     stud=st;
@@ -69,7 +67,6 @@ const ChangePage = () => {
   }
 
   const removeStuds = (e)=>{
-    e.preventDefault();
     if(!ment||!stud) {
       console.log("empty");
       return;
@@ -94,9 +91,9 @@ const ChangePage = () => {
         <form>
         <div className="mentors-container">
             { mentorData.length===0? <div>Add mentors to assign</div>:
-              mentorData.map((mentor) => {
+              mentorData.map((mentor,idx) => {
               return (
-                <div className="mentor-tile">
+                <div key={idx} className="mentor-tile">
                     <input
                     name="mentId"
                     className="rd"
@@ -115,17 +112,10 @@ const ChangePage = () => {
           { !studentData.length==0?
             (studentData
             .filter((student) => !student.mentor)
-            .map((student) => {
+            .map((student,idx) => {
               return (
-                <div className="student-tile">
-                  <input
-                      name="StuId"
-                      className="rd"
-                      type="radio"
-                      value={student.id}
-                      onChange={e=>getStuds(e)}
-                  />
-        
+                <div key={idx} className="student-tile">
+                  <input name="StuId" className="rd" type="radio" value={student.id} onChange={e=>getStuds(e)} />
                   <p>Name: {student.name.toUpperCase()}</p>
                   <p>Id: {student.id}</p>
                   <p>Batch: {student.batch}</p>
@@ -142,16 +132,10 @@ const ChangePage = () => {
         <form>
         <div className="students-container">
           { !studentData.length==0?
-            (studentData.map((student) => {
+            (studentData.filter(student=>student.mentor).map((student,idx) => {
             return (
-              <div className="student-tile">
-                  <input
-                      name="StuId"
-                      className="rd"
-                      type="radio"
-                      value={student.id}
-                      onChange={e=>getRemoveData(e.target.value,student.mentor)}
-                  />
+              <div key={idx} className="student-tile">
+                <input name="StuId" className="rd" type="radio" value={student.id} onChange={e=>getRemoveData(e.target.value,student.mentor)}/>
                 <p>Name: {student.name.toUpperCase()}</p>
                 <p>Id: {student.id}</p>
                 <p>Batch: {student.batch}</p>

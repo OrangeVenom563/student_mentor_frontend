@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import "./creation-form.styles.css";
 import M from "materialize-css";
 
+//This component is used to create new student and mentor
 const CreationForm = ({ type }) => {
   const label1 = type === "student" ? "Student Id" : "Mentor Id";
   const label2 = type === "student" ? "Student Name" : "Mentor Name";
@@ -12,7 +13,6 @@ const CreationForm = ({ type }) => {
   const url = type === "student" ? "/student/create-student" : "/mentor/create-mentor";
 
   const [dataObj,setDataObj] = useState({});
-
 
   const handleChange = (name, val) => {
       setDataObj(prevState=>({

@@ -28,11 +28,23 @@ input[type=text], input[type=email] {
       font-size: 14px;
   }
 
-  button{
-      border: 3px solid #C850C0;
-      background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+.btn{
+      background: #FFCC70 ;
       border-radius: 3px;
+      border:none;
       height: 30px;
       font-weight: bolder;
       margin-top: 50px;
+  }
+
+  .toast{
+    position: absolute;
+    top:50%;
+    right:10%;
+    background: rgba(221, 9, 9, 0.6);
+    border-radius: 5px;
+    margin-top: 20px;
+    padding:20px;
+    color:white;
+    font-weight: bold;
   }

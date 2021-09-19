@@ -11,7 +11,7 @@ function App() {
       <div className="App">
         <Header />
         <Switch>
-          <Route path="/view" component={ViewPage} />
+          <Route exact path="/" component={ViewPage} />
           <Route path="/create" component={CreatePage} />
           <Route path="/change" component={ChangePage} />
         </Switch>

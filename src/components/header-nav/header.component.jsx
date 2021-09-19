@@ -12,7 +12,7 @@ const Header = () => (
         Create
       </Link>
 
-      <Link className="option" to="/view">
+      <Link className="option" to="/">
         View
       </Link>
 

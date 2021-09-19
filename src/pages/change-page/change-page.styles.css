@@ -1,4 +1,4 @@
-.students-container{
+.students-container, .mentors-container{
     display: grid;
     margin: auto;
     margin-top: 50px;
@@ -15,7 +15,11 @@
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.student-tile{
+.mentors-container{
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+}
+
+.student-tile, .mentor-tile{
     font-weight: bold;
     border-radius: 5px;
     margin: 5px;
@@ -25,9 +29,42 @@
     position: relative;
 }
 
+.mentor-tile{
+    max-width: 15vw;
+    background:#C850C0;
+}
+
 .student-tile:hover{
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     color:black;
+}
+
+.cb, .rd{
+    position: absolute;
+    top: 15px; 
+    right: 15px;
+}
+
+.assign{
+    background: #FFCC70;
+    height: 60px;
+    width:20%;
+    font-weight: bolder;
+    margin: 40px 40% 10% 40%;
+    border:none;
+    border-radius: 5px;
+}
+
+.toast{
+    position: absolute;
+    top:50%;
+    right:10%;
+    background: rgba(221, 9, 9, 0.6);
+    border-radius: 5px;
+    margin-top: 20px;
+    padding:20px;
+    color:white;
+    font-weight: bold;
 }
 
 @media (max-width:850px){
@@ -35,6 +72,24 @@
         grid-template-columns: 1fr 1fr;
     }
     
+    .mentors-container{
+        grid-template-columns: 1fr 1fr 1fr ;
+    }
+    .mentor-tile{
+        min-width: 20vw ;
+    }
+    .rd{
+        right:5px;
+    }
+}
+
+@media (max-width:650px){
+    .mentors-container{
+        grid-template-columns: 1fr 1fr;
+    }
+    .mentor-tile{
+        min-width: 30vw ;
+    }
 }
 
 @media (max-width:555px){

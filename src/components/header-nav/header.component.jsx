@@ -8,12 +8,12 @@ const Header = () => (
 
     <div className="options">
      
-      <Link className="option" to="/create">
-        Create
-      </Link>
-
       <Link className="option" to="/">
         View
+      </Link>
+
+      <Link className="option" to="/create">
+        Create
       </Link>
 
       <Link className="option" to="/change">

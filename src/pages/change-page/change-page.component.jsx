@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TwoBoxNav from "../../components/twobox-nav/twobox-nav.component";
+import URL from "../../globals/constants"
 import "./change-page.styles.css";
 import M from "materialize-css";
 
@@ -12,14 +13,14 @@ const ChangePage = () => {
   let stud = '';
 
   useEffect(() => {
-    fetch("/student/all-students", { method: "get" })
+    fetch(URL+"/student/all-students", { method: "get" })
       .then((res) => res.json())
       .then((res) => {
         setStudent(res);
       })
       .catch((err) => console.log(err));
 
-    fetch("/mentor/all-mentors", { method: "get" })
+    fetch(URL+"/mentor/all-mentors", { method: "get" })
       .then((res) => res.json())
       .then((res) => {
         setMentor(res);
@@ -45,7 +46,7 @@ const ChangePage = () => {
       M.toast({ html: "Select a mentor and students" });
       return "";
     }
-    fetch("/mentor/add-student", { 
+    fetch(URL+"/mentor/add-student", { 
         method: "post",
         headers:{
             "Content-Type":"application/json"
@@ -71,8 +72,7 @@ const ChangePage = () => {
       console.log("empty");
       return;
     }
-    console.log(ment,stud)
-    fetch("/mentor/remove-student", { 
+    fetch(URL+"/mentor/remove-student", { 
       method: "post",
       headers:{
           "Content-Type":"application/json"

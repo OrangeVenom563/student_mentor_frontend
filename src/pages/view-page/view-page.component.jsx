@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import TwoBoxNav from "../../components/twobox-nav/twobox-nav.component";
 import "./view-page.styles.css";
+import URL from "../../globals/constants";
 
 //This component displays list of students with and without mentor
 const ViewPage = () => {
   const [studentData, setStudent] = useState([]);
 
   useEffect(() => {
-    fetch("/student/all-students", { method: "get" })
+    fetch(URL+"/student/all-students", { method: "get" })
       .then((res) => res.json())
       .then((res) => {
         setStudent(res);

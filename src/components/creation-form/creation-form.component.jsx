@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import "./creation-form.styles.css";
 import M from "materialize-css";
+import URL from "../../globals/constants";
 
 //This component is used to create new student and mentor
 const CreationForm = ({ type }) => {
@@ -29,7 +30,7 @@ const CreationForm = ({ type }) => {
       return "";
     }
     
-    fetch(url,{
+    fetch(URL+url,{
         method:"post",
         headers:{
             "Content-Type":"application/json",

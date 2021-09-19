@@ -42,6 +42,7 @@ const ChangePage = () => {
   }
 
   const assignStuds = (e)=>{
+    e.preventDefault();
     if(studs.length===0||ment===""){
       M.toast({ html: "Select a mentor and students" });
       return "";
@@ -68,8 +69,9 @@ const ChangePage = () => {
   }
 
   const removeStuds = (e)=>{
+    e.preventDefault();
     if(!ment||!stud) {
-      console.log("empty");
+      M.toast({ html: "Select a student" });
       return;
     }
     fetch(URL+"/mentor/remove-student", { 
